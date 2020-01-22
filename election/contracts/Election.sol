@@ -8,6 +8,7 @@ pragma solidity ^0.5.16;
   struct Candidate {
   	uint id;
   	string name;
+  	string party;
   	uint voteCount;
   }  
   //Store a condidate
@@ -16,14 +17,15 @@ pragma solidity ^0.5.16;
   //Store a condidate
   uint public candidatesCount;
   constructor() public {
-  	addCandidate("Narendra modi");
-  	addCandidate("Rahul Gandhi");
+  	addCandidate("Narendra modi", "BJP");
+  	addCandidate("Rahul Gandhi", "Congress");
+  	addCandidate("Arvind kejriwal", "AAP");
   }
 
   //fuction for adding candidate in map list
-  function addCandidate (string memory _name) private {
+  function addCandidate (string memory _name, string memory _party) private {
   	candidatesCount ++;
-  	candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+  	candidates[candidatesCount] = Candidate(candidatesCount, _name, _party, 0);
   }
 }
 
